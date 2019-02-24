@@ -9,11 +9,11 @@ cd opencv
 # download OpenCV and opencv_contrib
 wget -O opencv.zip https://github.com/opencv/opencv/archive/$OPENCV_VERSION.zip
 unzip opencv.zip
-rm -rf opencv.zip
+#rm -rf opencv.zip
 
 wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/$OPENCV_VERSION.zip
 unzip opencv_contrib.zip
-rm -rf opencv_contrib.zip
+#rm -rf opencv_contrib.zip
 
 OPENCV_SRC_DIR=`pwd`/opencv-$OPENCV_VERSION
 OPENCV_CONTRIB_MODULES_SRC_DIR=`pwd`/opencv_contrib-$OPENCV_VERSION/modules
@@ -29,6 +29,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 make -j4			
 
 make install
+tar -zcvf /opencv_build3.4.tar.gz install
 ldconfig
 
 # verify the installation is successful
@@ -46,5 +47,4 @@ fi
 
 # cleanup
 cd $WS_DIR
-rm -rf opencv
-
+# rm -rf opencv
